@@ -22,22 +22,22 @@ A powerful command-line calculator that supports basic arithmetic operations, ad
 
 ## Examples
 
-### Basic Operations:
+## Basic Operations:
    ```bash
    > 5 + 3
    8
 
-### Advanced Functions:
+## Advanced Functions:
    ```bash
    > sin(45)
    0.707
 
-### Unit Conversions:
+## Unit Conversions:
    ```bash
    > 100 km to miles
    62.1371 miles
 
-### View History:
+## View History:
    ```bash
    > history
    5 + 3 = 8
