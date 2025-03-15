@@ -15,3 +15,38 @@ A powerful command-line calculator that supports basic arithmetic operations, ad
    cd calculator
 
 2. Run the calculator:
+   ```bash
+   python calculator.py
+
+3. Input your expressions or select unit conversions.
+
+## Examples
+
+### Basic Operations:
+   ```bash
+   > 5 + 3
+   8
+
+### Advanced Functions:
+   ```bash
+   > sin(45)
+   0.707
+
+### Unit Conversions:
+   ```bash
+   > 100 km to miles
+   62.1371 miles
+
+### View History:
+   ```bash
+   > history
+   5 + 3 = 8
+   sin(45) = 0.707
+
+## Installation
+1. Ensure Python is installed on your system.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+   
