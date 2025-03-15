@@ -122,7 +122,6 @@ def evaluate(expression):
             else:
                 raise ValueError("Mismatched parentheses")
         
-        # If token is an operator
         elif token in '+-*/^%':
             while (operators and operators[-1] != '(' and
                    operators[-1] in precedence and
@@ -136,7 +135,6 @@ def evaluate(expression):
         
         i += 1
     
-    # Apply remaining operators
     while operators:
         apply_operator(operators, values)
     
@@ -150,7 +148,6 @@ def save_history(calculation, result):
     """Save calculation history to a file"""
     history_dir = os.path.expanduser("~/.calc_history")
     
-    # Create directory if it doesn't exist
     if not os.path.exists(history_dir):
         try:
             os.makedirs(history_dir)
@@ -186,14 +183,12 @@ def load_history(limit=10):
 
 def convert_units(value, from_unit, to_unit):
     """Convert between different units of measurement"""
-    # Temperature conversions
     temperature = {
         "c": {"f": lambda x: x * 9/5 + 32, "k": lambda x: x + 273.15},
         "f": {"c": lambda x: (x - 32) * 5/9, "k": lambda x: (x - 32) * 5/9 + 273.15},
         "k": {"c": lambda x: x - 273.15, "f": lambda x: (x - 273.15) * 9/5 + 32}
     }
     
-    # Length conversions (meters as base unit)
     length = {
         "m": {"cm": lambda x: x * 100, "km": lambda x: x / 1000, "in": lambda x: x * 39.3701, "ft": lambda x: x * 3.28084, "mi": lambda x: x / 1609.344},
         "cm": {"m": lambda x: x / 100, "km": lambda x: x / 100000, "in": lambda x: x / 2.54, "ft": lambda x: x / 30.48, "mi": lambda x: x / 160934.4},
@@ -203,7 +198,6 @@ def convert_units(value, from_unit, to_unit):
         "mi": {"m": lambda x: x * 1609.344, "cm": lambda x: x * 160934.4, "km": lambda x: x * 1.60934, "in": lambda x: x * 63360, "ft": lambda x: x * 5280}
     }
     
-    # Weight conversions (kg as base unit)
     weight = {
         "kg": {"g": lambda x: x * 1000, "lb": lambda x: x * 2.20462, "oz": lambda x: x * 35.274},
         "g": {"kg": lambda x: x / 1000, "lb": lambda x: x / 453.592, "oz": lambda x: x / 28.3495},
@@ -211,7 +205,6 @@ def convert_units(value, from_unit, to_unit):
         "oz": {"kg": lambda x: x / 35.274, "g": lambda x: x * 28.3495, "lb": lambda x: x / 16}
     }
     
-    # Identify unit type
     unit_type = None
     for unit_dict in [temperature, length, weight]:
         if from_unit in unit_dict and to_unit in unit_dict[from_unit]:
@@ -313,7 +306,6 @@ def main():
                     print(result)
                     last_result = result
                 
-                # Save to history
                 save_history(user_input, last_result)
         
         except ValueError as e:
